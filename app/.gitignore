@@ -1,1 +1,3 @@
 /build
+/schemas/com.vlv.aravali.database.KukuFMDatabase
+*.iml
