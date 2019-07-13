@@ -6,11 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.sillylife.dd.DDApplication
 import com.sillylife.dd.R
 import com.sillylife.dd.adapters.HomeAdapter
-import com.sillylife.dd.database.entities.MixedItemDataEntity
-import com.sillylife.dd.database.repo.MixedItemDataRepo
 import com.sillylife.dd.modal.MixedDataItem
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -28,9 +25,6 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setAdapter()
-
-        val deepLinkRepo = MixedItemDataRepo(DDApplication.getInstance())
-        deepLinkRepo.insert(MixedItemDataEntity(0,"SHub","sfef"))
     }
 
 

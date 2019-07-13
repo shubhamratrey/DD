@@ -14,5 +14,14 @@ data class MixedItemDataEntity(
         val type: String,
 
         @ColumnInfo(name = "title")
-        val title: String = ""
+        val title: String = "",
+
+        @ColumnInfo(name = "status")
+        val status: Boolean = false,
+
+        @ColumnInfo(name = "date")
+        val date: String = "",
+
+        @ColumnInfo(name = "time")
+        val time: String = ""
 )

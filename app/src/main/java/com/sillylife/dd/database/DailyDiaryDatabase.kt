@@ -43,6 +43,7 @@ abstract class DailyDiaryDatabase : RoomDatabase() {
                                     "`id` INTEGER NOT NULL," +
                                     "`title` TEXT NOT NULL," +
                                     "`type` TEXT NOT NULL," +
+                                    "`status` BOOLEAN NOT NULL," +
                                     "PRIMARY KEY(`id`))"
                     )
                 } catch (e: Exception) {

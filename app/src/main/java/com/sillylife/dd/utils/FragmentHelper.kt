@@ -12,6 +12,7 @@ object FragmentHelper {
 
     const val HOME = "home"
     const val CALENDAR = "calendar"
+    const val EDIT_AND_ADD_EXPENSE_FRAGMENT = "edit_and_add_expense_fragment"
 
     fun replace(@IdRes containerId: Int, fragmentManager: FragmentManager, fragment: Fragment, tag: String) {
         val fragmentTransaction = fragmentManager.beginTransaction()
