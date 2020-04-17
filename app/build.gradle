@@ -5,17 +5,18 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
     defaultConfig {
         applicationId "com.sillylife.dd"
-        minSdkVersion 19
-        targetSdkVersion 28
+        minSdkVersion 21
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -25,6 +26,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    buildToolsVersion '28.0.3'
 
     androidExtensions {
         experimental = true
@@ -33,30 +35,62 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.google.android.material:material:1.0.0'
+
+    // UI
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
+    implementation 'androidx.vectordrawable:vectordrawable:1.2.0-alpha01'
+
+
+    // Room components
+    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion"
+    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+    implementation "androidx.room:room-rxjava2:$rootProject.roomVersion"
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+
+    // Lifecycle components
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.archLifecycleVersion"
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime:2.2.0'
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$rootProject.archLifecycleVersion"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    // Testing
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation 'com.google.android.material:material:1.0.0'
-
-    implementation "androidx.vectordrawable:vectordrawable:1.1.0-rc01"
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha02'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-
-    implementation 'androidx.room:room-runtime:2.2.0-alpha01'
-    kapt 'androidx.room:room-compiler:2.2.0-alpha01'
-    implementation 'androidx.room:room-rxjava2:2.2.0-alpha01'
-
-    implementation 'androidx.lifecycle:lifecycle-runtime:2.0.0'
-    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.0.0'
-
-    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
 
     // for android app database debugging
     implementation 'com.facebook.stetho:stetho:1.5.0'
+
+    //Firebase
+    implementation 'com.google.firebase:firebase-messaging:19.0.0'
+
+    //Rx
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroid"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlin"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofit"
+
+    //OkHttp3
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.okHttp3"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okHttp3"
+
+    //Glide
+    implementation "com.github.bumptech.glide:glide:$rootProject.glide"
+    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glide"
+    kapt "com.github.bumptech.glide:compiler:$rootProject.glide"
+
+    //Svg support
+    implementation "com.caverock:androidsvg:$rootProject.androidSvg"
+
+    //Dexter
+    implementation "com.karumi:dexter:$rootProject.dexter"
 }

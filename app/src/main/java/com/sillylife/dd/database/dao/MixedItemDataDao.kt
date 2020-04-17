@@ -12,8 +12,8 @@ interface MixedItemDataDao {
     /*@Query("SELECT * FROM channel WHERE is_playing = 1")
     fun getRecentlyPlayedChannel(): ChannelEntity?*/
 
-    @Query("SELECT * FROM mixed_item order by id desc limit 1")
-    fun getLastInserted(): MixedItemDataEntity
+    @Query("SELECT * FROM mixed_item order by id desc limit :limit")
+    fun getLastInserted(limit:Int): MixedItemDataEntity
 
     @Delete
     fun delete(vararg channel: MixedItemDataEntity)

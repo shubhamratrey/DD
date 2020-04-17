@@ -20,7 +20,7 @@ class MainActivity : BaseActivity() {
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show()
-            addEditAndAddFragment()
+            addFragment(EditAndAddExpenseFragment.newInstance(), FragmentHelper.EDIT_AND_ADD_EXPENSE_FRAGMENT)
         }
     }
 
@@ -28,11 +28,4 @@ class MainActivity : BaseActivity() {
         addFragment(CalendarFragment.newInstance(), FragmentHelper.CALENDAR)
     }
 
-    fun addEditAndAddFragment() {
-        addFragment(EditAndAddExpenseFragment.newInstance(), FragmentHelper.EDIT_AND_ADD_EXPENSE_FRAGMENT)
-    }
-
-    fun addFragment(fragment: Fragment, tag: String) {
-        FragmentHelper.add(R.id.container, supportFragmentManager, fragment, tag)
-    }
 }

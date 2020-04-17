@@ -19,8 +19,8 @@ class MixedItemDataRepo(application: Application) {
         return dao?.getById(channelId)
     }
 
-    fun getLastInserted(): MixedItemDataEntity? {
-        return dao?.getLastInserted()
+    fun getLastInserted(limit:Int): MixedItemDataEntity? {
+        return dao?.getLastInserted(limit)
     }
 
     fun insert(entity: MixedItemDataEntity) {

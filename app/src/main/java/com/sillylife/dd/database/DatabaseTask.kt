@@ -47,7 +47,7 @@ class DatabaseTask(var taskType: DatabaseTaskType, var dao: Any?, val listener: 
         when (taskType) {
             DatabaseTaskType.INSERT -> {
                 if (dao is MixedItemDataDao) {
-                    any = (dao as MixedItemDataDao).getLastInserted()
+                    any = (dao as MixedItemDataDao).getById(result!! as Int)
                 }
             }
             DatabaseTaskType.GET -> {

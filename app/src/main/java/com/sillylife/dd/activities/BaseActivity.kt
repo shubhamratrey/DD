@@ -8,7 +8,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.sillylife.dd.R
+import com.sillylife.dd.utils.FragmentHelper
 
 
 @SuppressLint("Registered")
@@ -34,5 +36,9 @@ open class BaseActivity : AppCompatActivity() {
         if (message != null && !isFinishing) {
             Toast.makeText(this, message, length).show()
         }
+    }
+
+    fun addFragment(fragment: Fragment, tag: String) {
+        FragmentHelper.add(R.id.container, supportFragmentManager, fragment, tag)
     }
 }
