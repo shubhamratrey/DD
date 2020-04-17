@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sillylife.dd.R
 import com.sillylife.dd.adapters.HomeAdapter
-import com.sillylife.dd.modal.MixedDataItem
+import com.sillylife.dd.models.MixedDataItem
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment() {

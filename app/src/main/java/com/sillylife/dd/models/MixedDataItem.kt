@@ -1,4 +1,4 @@
-package com.sillylife.dd.modal
+package com.sillylife.dd.models
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

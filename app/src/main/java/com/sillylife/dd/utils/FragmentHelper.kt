@@ -20,24 +20,14 @@ object FragmentHelper {
         fragmentTransaction.commitAllowingStateLoss()
     }
 
-    fun add(@IdRes containerId: Int, fragmentManager: FragmentManager, fragment: Fragment, tag: String) {
+    fun add(@IdRes containerId: Int, fragmentManager: FragmentManager, fragment: Fragment, tag: String? = null) {
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.add(containerId, fragment, tag)
-        fragmentTransaction.addToBackStack(tag)
-
-        val displayedFragment = fragmentManager.findFragmentById(containerId)
-
-        if (displayedFragment != null) {
-            fragmentTransaction.hide(displayedFragment)
+        if (tag != null) {
+            fragmentTransaction.add(containerId, fragment, tag)
+            fragmentTransaction.addToBackStack(tag)
+        } else {
+            fragmentTransaction.add(containerId, fragment)
         }
-
-        fragmentTransaction.commitAllowingStateLoss()
-    }
-
-    fun add(@IdRes containerId: Int, fragmentManager: FragmentManager, fragment: Fragment) {
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.add(containerId, fragment)
-
         val displayedFragment = fragmentManager.findFragmentById(containerId)
 
         if (displayedFragment != null) {

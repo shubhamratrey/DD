@@ -17,29 +17,22 @@ open class BaseFragment : Fragment() {
         mContext = context
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
-    override fun onResume() {
-        super.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
-
     fun showToast(message: String, length: Int) {
-        if (activity != null && !activity?.isFinishing!!) {
-            Toast.makeText(activity, message, length).show()
-        }
-
+        getBaseActivity().showToast(message, length)
     }
 
     fun getBaseActivity(): BaseActivity {
-        var fragmentActivity: FragmentActivity = mContext as FragmentActivity
-        return fragmentActivity as BaseActivity
+        return (mContext as FragmentActivity) as BaseActivity
     }
+
+    fun addFragment(fragment: Fragment, tag: String?=null) {
+        getBaseActivity().addFragment(fragment, tag)
+    }
+
+    fun replaceFragment(fragment: Fragment, tag: String) {
+        getBaseActivity().replaceFragment(fragment, tag)
+    }
+
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)

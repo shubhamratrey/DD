@@ -38,7 +38,11 @@ open class BaseActivity : AppCompatActivity() {
         }
     }
 
-    fun addFragment(fragment: Fragment, tag: String) {
+    fun addFragment(fragment: Fragment, tag: String?=null) {
         FragmentHelper.add(R.id.container, supportFragmentManager, fragment, tag)
+    }
+
+    fun replaceFragment(fragment: Fragment, tag: String) {
+        FragmentHelper.replace(R.id.container, supportFragmentManager, fragment, tag)
     }
 }
