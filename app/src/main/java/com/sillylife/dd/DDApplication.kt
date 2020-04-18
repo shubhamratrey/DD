@@ -3,11 +3,16 @@ package com.sillylife.dd
 import android.app.Application
 import com.facebook.stetho.Stetho
 import com.sillylife.dd.database.DailyDiaryDatabase
+import com.sillylife.dd.services.APIService
+import com.sillylife.dd.services.IAPIService
 
 class DDApplication : Application() {
 
     @Volatile
     private var mKukuFMDatabase: DailyDiaryDatabase? = null
+
+    @Volatile
+    private var mIAPIService: IAPIService? = null
 
     companion object {
         @Volatile
@@ -32,6 +37,13 @@ class DDApplication : Application() {
             mKukuFMDatabase = DailyDiaryDatabase.getInstance(this)
         }
         return mKukuFMDatabase
+    }
+    @Synchronized
+    fun getAPIService(): IAPIService {
+        if (mIAPIService == null) {
+            mIAPIService = APIService.build()
+        }
+        return mIAPIService!!
     }
 
 }

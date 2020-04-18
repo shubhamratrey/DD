@@ -69,6 +69,8 @@ dependencies {
 
     //Firebase
     implementation 'com.google.firebase:firebase-messaging:19.0.0'
+    implementation 'com.google.firebase:firebase-auth:18.0.0'
+    implementation 'com.google.android.gms:play-services-auth:16.0.1'
 
     //Rx
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroid"
